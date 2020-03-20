@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
+    android:orientation="vertical"
+    android:padding="30dp">
+
+    <ImageView
+        android:id="@+id/movie_icon"
+        android:layout_width="351dp"
+        android:layout_height="404dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/tv_search_result"
+            android:layout_width="326dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:textSize="18sp"
+            android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/average_vote"
+            android:layout_width="326dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/popularity"
+            android:layout_width="326dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="15sp" />
+
+
+    </LinearLayout>
+</LinearLayout>

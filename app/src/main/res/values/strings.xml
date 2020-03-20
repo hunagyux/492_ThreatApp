@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">ThreatApp</string>
+    <string name="search_box_hint">Search your movie</string>
+    <string name="search_button_text">Search</string>
+    <string name="loading_error">We were unable to execute your query.  Check your internet connection.</string>
+    <string name="action_share">Share</string>
+    <string name="action_view_on_web">View repo on GitHub</string>
+    <string name="share_repo_text">%1$s: %2$s</string>
+
+    <string name="nav_search">Search</string>
+    <string name="nav_saved_repos">Saved repos</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Strings for sort-by preference -->
+    <string name="pref_sort_key" translatable="false">pref_sort</string>
+    <string name="pref_sort_title">Sort by</string>
+    <string name="pref_sort_entry_best_match">Best match</string>
+    <string name="pref_sort_entry_stars">Stars</string>
+    <string name="pref_sort_value_stars" translatable="false">stars</string>
+    <string name="pref_sort_entry_forks">Forks</string>
+    <string name="pref_sort_value_forks" translatable="false">forks</string>
+    <string name="pref_sort_entry_updated">Most-recently updated</string>
+    <string name="pref_sort_value_updated" translatable="false">updated</string>
+    <string name="pref_sort_default">@string/pref_sort_value_stars</string>
+
+    <!-- Strings for programming language preference -->
+    <string name="pref_language_key" translatable="false">pref_language</string>
+    <string name="pref_language_title">Programming language</string>
+    <string name="pref_language_default"></string>
+    <string name="pref_language_entry_any">Default English</string>
+    <string name="pref_language_entry_c">Chinese</string>
+    <string name="pref_language_value_c" translatable="false">zh-CN</string>
+    <string name="pref_language_entry_japan">Japanese</string>
+    <string name="pref_language_value_japan" translatable="false">ja-JP</string>
+
+
+    <!-- Strings for search-in preference -->
+    <string name="pref_in_title">Search in</string>
+    <string name="pref_in_adult_key" translatable="false">pref_in_adult</string>
+    <string name="pref_in_adult_title">Search in adult</string>
+    <string name="pref_in_description_key" translatable="false">pref_in_description</string>
+    <string name="pref_in_description_title">Search in description</string>
+    <string name="pref_in_readme_key" translatable="false">pref_in_readme</string>
+    <string name="pref_in_readme_title">Search in README</string>
+
+    <!-- Strings for user preference -->
+    <string name="pref_title_key" translatable="false">pref_year</string>
+    <string name="pref_year">Year</string>
+</resources>
