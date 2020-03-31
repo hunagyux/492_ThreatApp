@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_material_light"
     android:orientation="vertical"
     android:layout_gravity="center"
     tools:context=".RepoDetailActivity">
@@ -11,13 +12,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
         android:orientation="horizontal"
-        android:layout_gravity="center">
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        >
         <TextView
         android:id="@+id/tv_repo_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:textSize="20sp"
         android:textColor="#000"/>
 
@@ -25,7 +28,9 @@
             android:id="@+id/iv_repo_bookmark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_bookmark_border_black_24dp" />
+            android:paddingTop="3dp"
+            android:paddingLeft="3dp"
+            android:src="@drawable/ic_star_border_black_24dp" />
 
     </LinearLayout>
 
@@ -44,7 +49,8 @@
             android:paddingBottom="5dp"/>
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingTop="5dp">
         <TextView
             android:id="@+id/tv_repo_description"
             android:layout_width="match_parent"

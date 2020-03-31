@@ -60,9 +60,7 @@ public class MovieSearchAdapter extends RecyclerView.Adapter<MovieSearchAdapter.
         holder.bind(mSearchResultsList.get(position));
     }
 
-    public interface OnSearchResultClickListener {
-        void onSearchResultClicked(MovieSearchRepo repo);
-    }
+
 
     class SearchResultViewHolder extends RecyclerView.ViewHolder {
         private TextView mSearchResultTV;

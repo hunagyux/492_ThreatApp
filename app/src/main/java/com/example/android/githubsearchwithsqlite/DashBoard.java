@@ -44,12 +44,12 @@ public class DashBoard extends AppCompatActivity implements NowPlayingAdapter.On
                     case R.id.home:
                         startActivity(new Intent(getApplicationContext()
                                 ,MainActivity.class));
-                        overridePendingTransition(0, 0);
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         return true;
                     case R.id.user:
                         startActivity(new Intent(getApplicationContext()
                                 ,User.class));
-                        overridePendingTransition(0, 0);
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         return true;
                 }
                 return false;
@@ -94,7 +94,7 @@ public class DashBoard extends AppCompatActivity implements NowPlayingAdapter.On
             }
         });
         doGenerateNowPlaying();
-
+        //CustomIntent.customType(this,"fadein-to-fadeout");
 
 
     }
@@ -107,5 +107,11 @@ public class DashBoard extends AppCompatActivity implements NowPlayingAdapter.On
     @Override
     public void onNowPlayingClicked(NowPlayingRepo repo) {
 
+    }
+
+    @Override
+    public void finish(){
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 }

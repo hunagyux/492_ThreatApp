@@ -16,6 +16,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
+import maes.tech.intentanim.CustomIntent;
+
 public class User extends AppCompatActivity implements MovieSearchAdapter.onMovieSearchClicked{
 
     private SavedReposViewModel mViewModel;
@@ -34,12 +36,12 @@ public class User extends AppCompatActivity implements MovieSearchAdapter.onMovi
                     case R.id.dashbaord:
                         startActivity(new Intent(getApplicationContext()
                                 ,DashBoard.class));
-                        overridePendingTransition(0, 0);
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         return true;
                     case R.id.home:
                         startActivity(new Intent(getApplicationContext()
                                 ,MainActivity.class));
-                        overridePendingTransition(0, 0);
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         return true;
                     case R.id.user:
                         return true;
@@ -66,6 +68,7 @@ public class User extends AppCompatActivity implements MovieSearchAdapter.onMovi
                 adapter.updateSearchResults(movieSearchRepos);
             }
         });
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     @Override
@@ -73,5 +76,11 @@ public class User extends AppCompatActivity implements MovieSearchAdapter.onMovi
         Intent intent = new Intent(this, RepoDetailActivity.class);
         intent.putExtra(RepoDetailActivity.EXTRA_GITHUB_REPO, repo);
         startActivity(intent);
+        CustomIntent.customType(this,"fadein-to-fadeout");
+    }
+    @Override
+    public void finish(){
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 }

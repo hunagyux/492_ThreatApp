@@ -33,4 +33,6 @@ public class NowPlayingViewModel extends ViewModel {
     public LiveData<Status> getLoadingStatus() {
         return mLoadingStatus;
     }
+
+
 }

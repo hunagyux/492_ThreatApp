@@ -18,6 +18,8 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
 import com.example.android.githubsearchwithsqlite.data.MovieSearchRepo;
+import com.r0adkll.slidr.Slidr;
+import com.r0adkll.slidr.model.SlidrInterface;
 
 import java.util.List;
 
@@ -28,12 +30,12 @@ public class RepoDetailActivity extends AppCompatActivity {
     private boolean mIsSaved = false;
 
     private SavedReposViewModel mViewModel;
-
+    private SlidrInterface slidr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_repo_detail);
-
+        slidr = Slidr.attach(this);
         mViewModel = new ViewModelProvider(
                 this,
                 new ViewModelProvider.AndroidViewModelFactory(getApplication())
@@ -52,7 +54,7 @@ public class RepoDetailActivity extends AppCompatActivity {
             Glide.with(mMovieImageTV.getContext()).load(base+iconURL).into(mMovieImageTV);
 
             TextView repoDescriptionTV = findViewById(R.id.tv_repo_description);
-            repoDescriptionTV.setText("OverView: "+mRepo.overview);
+            repoDescriptionTV.setText("Overview: "+mRepo.overview);
         }
 
         final ImageView repoBookmarkIV = findViewById(R.id.iv_repo_bookmark);
@@ -99,7 +101,9 @@ public class RepoDetailActivity extends AppCompatActivity {
                 viewRepoOnWeb();
                 return true;
             default:
-                return super.onOptionsItemSelected(item);
+                finish();
+                return false;
+                //return super.onOptionsItemSelected(item);
         }
     }
 
@@ -128,5 +132,12 @@ public class RepoDetailActivity extends AppCompatActivity {
             Intent chooserIntent = Intent.createChooser(shareIntent, null);
             startActivity(chooserIntent);
         }
+    }
+
+    @Override
+    public void finish(){
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        //CustomIntent.customType(this,"fadein-to-fadeout");
     }
 }

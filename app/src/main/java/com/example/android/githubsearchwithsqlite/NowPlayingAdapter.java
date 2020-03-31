@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -46,11 +47,13 @@ public class NowPlayingAdapter extends RecyclerView.Adapter<NowPlayingAdapter.Se
     public SearchResultViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.search_result_item, parent, false);
+
         return new SearchResultViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(SearchResultViewHolder holder, int position) {
+
         holder.bind(mSearchResultsList.get(position));
     }
 
@@ -58,13 +61,15 @@ public class NowPlayingAdapter extends RecyclerView.Adapter<NowPlayingAdapter.Se
         private TextView mSearchResultTV;
         private ImageView mMovieImageTV;
         private TextView mPopularityTV;
-        private TextView mAverageVoteTV;
+        private TextView mReleasedayTV;
+        private RatingBar mRatingBar;
         SearchResultViewHolder(View itemView) {
             super(itemView);
             mSearchResultTV = itemView.findViewById(R.id.tv_search_result);
             mMovieImageTV = itemView.findViewById(R.id.movie_icon);
             mPopularityTV = itemView.findViewById(R.id.popularity);
-            mAverageVoteTV = itemView.findViewById(R.id.average_vote);
+            mReleasedayTV = itemView.findViewById(R.id.release_day);
+            mRatingBar = itemView.findViewById(R.id.sample_rate);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -85,13 +90,16 @@ public class NowPlayingAdapter extends RecyclerView.Adapter<NowPlayingAdapter.Se
             //-------------------------
             //Convert average vote
 
-            String avg = Double.toString(repo.vote_average);
-            mAverageVoteTV.setText("Average Vote: "+ avg);
-
+            //String avg = Double.toString(repo.vote_average);
+            //mAverageVoteTV.setText("Average Vote: "+ avg);
+            mRatingBar.setNumStars(5);
+            mRatingBar.setRating(repo.vote_average/2);
+            mReleasedayTV.setText("Release day: "+repo.release_date);
             //Cover poster of the movie
             String base = "https://image.tmdb.org/t/p/w500/";
             String iconURL = repo.poster_path;
             Glide.with(mMovieImageTV.getContext()).load(base+iconURL).into(mMovieImageTV);
         }
     }
+
 }

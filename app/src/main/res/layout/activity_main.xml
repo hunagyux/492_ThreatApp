@@ -42,7 +42,7 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="509dp">
+                android:layout_height="492dp">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_search_results"

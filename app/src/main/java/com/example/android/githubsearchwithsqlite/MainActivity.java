@@ -30,6 +30,8 @@ import com.google.android.material.navigation.NavigationView;
 
 import java.util.List;
 
+import maes.tech.intentanim.CustomIntent;
+
 public class MainActivity extends AppCompatActivity
         implements MovieSearchAdapter.onMovieSearchClicked, NavigationView.OnNavigationItemSelectedListener {
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -56,14 +58,14 @@ public class MainActivity extends AppCompatActivity
                     case R.id.dashbaord:
                         startActivity(new Intent(getApplicationContext()
                                 ,DashBoard.class));
-                        overridePendingTransition(0, 0);
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         return true;
                     case R.id.home:
                         return true;
                     case R.id.user:
                         startActivity(new Intent(getApplicationContext()
                                 ,User.class));
-                        overridePendingTransition(0, 0);
+                        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                         return true;
                 }
                 return false;
@@ -132,7 +134,8 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nv_nav_drawer);
         navigationView.setNavigationItemSelectedListener(this);
-
+        //CustomIntent.customType(this,"fadein-to-fadeout");
+        //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     @Override
@@ -150,11 +153,10 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         mDrawerLayout.closeDrawers();
         switch (item.getItemId()) {
-            case R.id.nav_search:
-                return true;
             case R.id.nav_settings:
                 Intent settingsIntent = new Intent(this, SettingsActivity.class);
                 startActivity(settingsIntent);
+                CustomIntent.customType(this,"fadein-to-fadeout");
                 return true;
             default:
                 return false;
@@ -167,6 +169,7 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(this, RepoDetailActivity.class);
             intent.putExtra(RepoDetailActivity.EXTRA_GITHUB_REPO, repo);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         //}
     }
 
@@ -187,5 +190,9 @@ public class MainActivity extends AppCompatActivity
 
 
 
-
+    @Override
+    public void finish(){
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
 }
